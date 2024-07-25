@@ -286,7 +286,7 @@ export type HIRFunction = {
   params: Array<Place | SpreadPattern>;
   returnType: t.FlowType | t.TSType | null;
   context: Array<Place>;
-  effects: Array<FunctionEffect> | null;
+  effects: Set<FunctionEffect> | null;
   body: HIR;
   generator: boolean;
   async: boolean;

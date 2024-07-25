@@ -544,8 +544,8 @@ export function printInstructionValue(instrValue: ReactiveValue): string {
         .map(dep => printPlace(dep))
         .join(',');
       const effects =
-        instrValue.loweredFunc.func.effects
-          ?.map(effect => {
+        [...(instrValue.loweredFunc.func.effects ?? [])]
+          .map(effect => {
             if (effect.kind === 'ContextMutation') {
               return `ContextMutation places=[${[...effect.places]
                 .map(place => printPlace(place))
